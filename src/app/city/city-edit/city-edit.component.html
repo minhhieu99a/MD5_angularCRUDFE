@@ -1,0 +1,39 @@
+<h1>Cập nhập lại thông  tin Thành Phố</h1>
+<h2><a routerLink="/city">Home</a></h2>
+<div class="container">
+  <form [formGroup]="cityForm" (ngSubmit)="updateCities(id)">
+    <input type="hidden" id="id" name="id" formControlName="id">
+    <div class="mb-3">
+      <label for="name" class="form-label">Tên Thành Phố</label>
+      <input type="text" class="form-control" id="name" formControlName="name">
+      <div *ngIf="nameControl.touched && nameControl.invalid">
+        <p style="color: red" *ngIf="nameControl.errors?.required">
+          Vui lòng nhập tên thành phố.
+        </p>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="population" class="form-label">Dân số</label>
+      <input type="text" class="form-control" id="population" formControlName="population">
+    </div>
+    <div class="mb-3">
+      <label for="area" class="form-label">Diện Tích</label>
+      <input type="text" class="form-control" id="area" formControlName="area">
+    </div>
+    <div class="mb-3">
+      <label for="country">Quốc Gia</label>
+      <select  formControlName="country" id="country">
+        <option [value]="country.id" *ngFor="let country of country">{{country.name}}</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="description" class="form-label">Mô tả</label>
+      <input type="text" class="form-control" id="description" formControlName="description">
+    </div>
+    <div class="mb-3">
+      <label for="gdp" class="form-label">GDP</label>
+      <input type="text" class="form-control" id="gdp" formControlName="gdp">
+    </div>
+    <button type="submit" class="btn btn-primary">Update</button>
+  </form>
+</div>

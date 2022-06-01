@@ -1,0 +1,26 @@
+<h1>Danh sách sản phẩm</h1>
+<a routerLink="/city/create">Tạo mới sản phẩm</a>
+<table>
+  <tr>
+    <th>STT</th>
+    <th>Tên thành phố</th>
+    <th>Tên quốc gia</th>
+    <th>Diện tích</th>
+    <th>Dân số</th>
+    <th>GDP</th>
+    <th>Mô tả</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+  <tr *ngFor="let c of city; index as i">
+    <td>{{i + 1}}</td>
+    <td>{{c.name}}</td>
+    <td>{{c.country.name}}</td>
+    <td>{{c.area}}</td>
+    <td>{{c.population}}</td>
+    <td>{{c.gdp}}</td>
+    <td>{{c.description}}</td>
+    <td><a [routerLink]="['/city/edit', c.id]">Edit</a></td>
+    <td><a [routerLink]="['/city/delete', c.id]">Delete</a></td>
+  </tr>
+</table>

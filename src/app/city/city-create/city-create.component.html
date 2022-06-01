@@ -1,0 +1,67 @@
+<h1>Tạo sản phẩm</h1>
+<a routerLink="/city">Danh sách sản phẩm</a>
+<br>
+<!--<form #productCreate='ngForm' (ngSubmit)="createProduct(productCreate)">-->
+<!--  <div>-->
+<!--    <label for="id">Mã sản phẩm</label>-->
+<!--    <input type="text" id="id" name="id"-->
+<!--           required-->
+<!--           #productId='ngModel'-->
+<!--           [(ngModel)]="product.id">-->
+<!--  </div>-->
+<!--  <div *ngIf="productId.touched && productId.invalid">-->
+<!--    <p style="color: red" *ngIf="productId.errors?.required">Trường này bắt buộc phải điền</p>-->
+<!--  </div>-->
+<!--  <div>-->
+<!--    <label for="name">Tên sản phẩm</label>-->
+<!--    <input type="text" id="name" name="name" [(ngModel)]="product.name">-->
+<!--  </div>-->
+<!--  <div>-->
+<!--    <label for="price">Giá sản phẩm</label>-->
+<!--    <input type="text" id="price" name="price" [(ngModel)]="product.price">-->
+<!--  </div>-->
+<!--  <div>-->
+<!--    <label for="description">Mô tả sản phẩm</label>-->
+<!--    <input type="text" id="description" name="description" [(ngModel)]="product.description">-->
+<!--  </div>-->
+<!--  <div>-->
+<!--    <button>Tạo mới</button>-->
+<!--  </div>-->
+<!--</form>-->
+<!--Reactive Form-->
+<form (ngSubmit)="createNewCity1()" [formGroup]="cityForm">
+  <div>
+    <label for="name">Tên thành phố</label>
+    <input formControlName="name" id="name" type="text">
+  </div>
+  <div *ngIf="nameControl.touched && nameControl.invalid">
+    <p *ngIf="nameControl.errors?.required" style="color: red">
+      Trường này bắt buộc phải điền
+    </p>
+  </div>
+  <div>
+    <label for="country">Tên đất nước</label>
+    <select  id="country" formControlName="country">
+      <option *ngFor="let country of country1 " ngValue="{{country.id}}" >{{country.name}}</option>
+    </select>
+  </div>
+  <div>
+    <label for="area">Diện tích</label>
+    <input formControlName="area" id="area" type="text">
+  </div>
+  <div>
+    <label for="population">Dân số</label>
+    <input formControlName="population" id="population" type="text">
+  </div>
+  <div>
+    <label for="gdp">GDP</label>
+    <input formControlName="gdp" id="gdp" type="text">
+  </div>
+  <div>
+    <label for="description">Mô tả</label>
+    <input formControlName="description" id="description" type="text">
+  </div>
+  <div>
+    <button>Tạo mới</button>
+  </div>
+</form>
